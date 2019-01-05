@@ -20,9 +20,9 @@ get_ipython().magic('matplotlib inline')
 
 model = load_vgg_model("pretrained-model/imagenet-vgg-verydeep-19.mat")
 print(model)
-content_image = scipy.misc.imread("images/louvre.jpg")
+content_image = scipy.misc.imread("louvre.jpg")
 imshow(content_image)
-style_image = scipy.misc.imread("images/monet_800600.jpg")
+style_image = scipy.misc.imread("monet_800600.jpg")
 imshow(style_image)
 
 def compute_content_cost(a_C, a_G):
@@ -93,9 +93,9 @@ tf.reset_default_graph()
 
 # Start interactive session
 sess = tf.InteractiveSession()
-content_image = scipy.misc.imread("images/louvre_small.jpg")
+content_image = scipy.misc.imread("louvre_small.jpg")
 content_image = reshape_and_normalize_image(content_image)
-style_image = scipy.misc.imread("images/monet.jpg")
+style_image = scipy.misc.imread("monet.jpg")
 style_image = reshape_and_normalize_image(style_image)
 
 generated_image = generate_noise_image(content_image)
@@ -150,7 +150,7 @@ def model_nn(sess, input_image, num_iterations = 200):
             save_image("output/" + str(i) + ".png", generated_image)
     
     # save last generated image
-    save_image('output/generated_image.jpg', generated_image)
+    save_image('generated_image.jpg', generated_image)
     
     return generated_image
 
